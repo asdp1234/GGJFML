@@ -17,13 +17,14 @@ public class movement : MonoBehaviour
     public bool item_state = false;
     public bool is_grounded = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
         //Used to reference the Rigidbody of the player game object
         rb = gameObject.GetComponent<Rigidbody>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
