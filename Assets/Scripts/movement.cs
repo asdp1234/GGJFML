@@ -13,8 +13,9 @@ public class movement : MonoBehaviour
     //Object to get Rigidbody into, can be edited from unity
     public Rigidbody rb;
 
-    
+    public Transform gunpoint;
     public GameObject e_gun;
+    public GameObject bullet;
 
     //Object to determine if the item has been collected yet.
     public bool item_state = false;
@@ -22,6 +23,8 @@ public class movement : MonoBehaviour
 
     private bool gun_equipped = false;
     public float aim_direction = 1;
+    public int bullet_delay = 35;
+    public int click = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +48,15 @@ public class movement : MonoBehaviour
         }
 	    transform.position += movement * Time.deltaTime * move_speed;
 
+        if(Input.GetMouseButton(0) && click > bullet_delay-1) {
+            click = 0;
+            Instantiate(bullet, gunpoint.position, gunpoint.rotation);
+            //Needs to fire bullets now
+        }
 
-        
+        if(click < bullet_delay) {
+            click++;
+        }        
         //aim_direction = Input.mousePosition.x - WorldToScreenPoint(transform.position).x;// - transform.position.y)/(Mathf.Abs(Input.mousePosition.y - transform.position.y));
     }
 
