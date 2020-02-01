@@ -28,12 +28,6 @@ public class EnemyMoveGoal : MonoBehaviour
         GoNextPoint();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     void GoNextPoint()
     {
@@ -50,5 +44,16 @@ public class EnemyMoveGoal : MonoBehaviour
         // When we move to the new point, the container will
         // increment by one node so we get the new updated position
         destPoint = (destPoint + 1) % m_goals.Length;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // If one node is triggered, the agent will find the next node
+        // to travel to
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            GoNextPoint();
+        }
     }
 }
