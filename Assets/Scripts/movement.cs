@@ -13,15 +13,22 @@ public class movement : MonoBehaviour
     //Object to get Rigidbody into, can be edited from unity
     public Rigidbody rb;
 
+    
+    public GameObject e_gun;
+
     //Object to determine if the item has been collected yet.
     public bool item_state = false;
     public bool is_grounded = false;
+
+    private bool gun_equipped = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //Used to reference the Rigidbody of the player game object
         rb = gameObject.GetComponent<Rigidbody>();
+
+        e_gun.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,6 +52,12 @@ public class movement : MonoBehaviour
             item_state = true;
             
             GameObject.Destroy(col.gameObject,1);
+        }
+        else if (col.gameObject.name == "gun") {
+            gun_equipped = false;
+            e_gun.gameObject.SetActive(true);
+
+            GameObject.Destroy(col.gameObject,0);
         }
         else if (col.gameObject.tag == "ground") {
             is_grounded = true;
