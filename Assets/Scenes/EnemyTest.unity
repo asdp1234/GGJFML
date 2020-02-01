@@ -512,7 +512,7 @@ MonoBehaviour:
   jump_height: 5
   rb: {fileID: 0}
   item_state: 0
-  is_grounded: 0
+  is_grounded: 1
 --- !u!1 &876609745
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 1500935508}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
