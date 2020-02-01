@@ -10,6 +10,8 @@ public class Lift : MonoBehaviour
     GameObject go;
     [SerializeField]
     Transform f1, f2, f3, f4, f5;
+    [SerializeField]
+    bool floor1, floor2, floor3, floor4, floor5;
     // Update is called once per frame
     void Update()
     {
@@ -18,52 +20,56 @@ public class Lift : MonoBehaviour
         {
         case 1:
 
-        if (go.transform.position.y == f1.position.y)
+        if (floor1 = true && (go.transform.position.y + 0.05f) >= f1.position.y)
         {
             Move(go.transform.position, f2.position);
+                    floor1 = false;
+                    floor2 = true;
         }
-        else if (go.transform.position.y == f2.position.y)
+        if (floor2 = true && (go.transform.position.y + 0.05f) >= f2.position.y)
         {
-
+             Move(go.transform.position, f3.position);
+                    floor2 = false;
+                    floor3 = true;
         }
-        else if (go.transform.position.y == f3.position.y)
+        if (floor3 = true && (go.transform.position.y + 0.05f) >= f3.position.y)
         {
-
-        }
-        else if (go.transform.position.y == f4.position.y)
+            Move(go.transform.position, f4.position);
+                    floor3 = false;
+                    floor4 = true;
+                }
+       if (floor4 = true && (go.transform.position.y + 0.05f) >= f4.position.y)
         {
-
-        }
-        else
-        {
-
-        }
+           Move(go.transform.position, f5.position);
+                    floor4 = false;
+                    floor5 = true;
+                }
+       
         break;
 
             case 2:
 
-        if (go.transform.position.y == f1.position.y)
-        {
-
-        }
-        else if (go.transform.position.y == f2.position.y)
-        {
-
-        }
-        else if (go.transform.position.y == f3.position.y)
-        {
-
-        }
-        else if (go.transform.position.y == f4.position.y)
-        {
-
-        }
-        else
-        {
-
-        }
-
-        break;
+                if ((go.transform.position.y + 0.05f) >= f1.position.y)
+                {
+                    
+                }
+                else if ((go.transform.position.y + 0.05f) >= f2.position.y)
+                {
+                    Move(go.transform.position, f1.position);
+                }
+                else if ((go.transform.position.y + 0.05f) >= f3.position.y)
+                {
+                    Move(go.transform.position, f2.position);
+                }
+                else if ((go.transform.position.y + 0.05f) >= f4.position.y)
+                {
+                    Move(go.transform.position, f3.position);
+                }
+                else if ((go.transform.position.y + 0.05f) >= f5.position.y)
+                {
+                    Move(go.transform.position, f4.position);
+                }
+                break;
 
 
 
@@ -79,7 +85,8 @@ public class Lift : MonoBehaviour
         while (((liftdest.y - transform.position.y) >= 0.01))
         {
 
-            transform.position = Vector3.Lerp(transform.position, liftdest, 0.5f);
+            transform.position = Vector3.Lerp(transform.position, (liftdest + new Vector3(0,0.02f,0)), 0.5f);
+            move = 3;
         }
 
 
