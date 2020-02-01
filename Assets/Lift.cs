@@ -15,6 +15,12 @@ public class Lift : MonoBehaviour
     [SerializeField]
     bool canmove = true;
     // Update is called once per frame
+    private void Start()
+    {
+        canmove = true;
+        floor1 = true;
+    }
+
     void Update()
     {
 
@@ -22,56 +28,77 @@ public class Lift : MonoBehaviour
         {
         case 1:
 
-        if (floor1 = true && canmove && (go.transform.position.y + 0.05f) >= f1.position.y)
+        if (floor1 && canmove && (go.transform.position.y + 0.05f) >= f1.position.y)
         {
-            Move(go.transform.position, f2.position);
+            Moveup(go.transform.position, f2.position);
                     floor1 = false;
                     floor2 = true;
                     
         }
-        if (floor2 = true && canmove && (go.transform.position.y + 0.05f) >= f2.position.y)
+        if (floor2  && canmove && (go.transform.position.y + 0.05f) >= f2.position.y)
         {
-             Move(go.transform.position, f3.position);
+             Moveup(go.transform.position, f3.position);
                     floor2 = false;
                     floor3 = true;
         }
-        if (floor3 = true && canmove && (go.transform.position.y + 0.05f) >= f3.position.y)
+        if (floor3  && canmove && (go.transform.position.y + 0.05f) >= f3.position.y)
         {
-            Move(go.transform.position, f4.position);
+            Moveup(go.transform.position, f4.position);
                     floor3 = false;
                     floor4 = true;
         }
-       if (floor4 = true && canmove && (go.transform.position.y + 0.05f) >= f4.position.y)
+       if (floor4  && canmove && (go.transform.position.y + 0.05f) >= f4.position.y)
         {
-           Move(go.transform.position, f5.position);
+           Moveup(go.transform.position, f5.position);
                     floor4 = false;
                     floor5 = true;
         }
-                canmove = false;
+                canmove = true;
         break;
 
             case 2:
 
-                if ((go.transform.position.y + 0.05f) >= f1.position.y)
+                if (floor1  && canmove && (go.transform.position.y) <= f1.position.y)
                 {
                     
                 }
-                else if ((go.transform.position.y + 0.05f) >= f2.position.y)
+                if (floor2 && canmove)
                 {
-                    Move(go.transform.position, f1.position);
+                    //if ((go.transform.position.y) <= f2.position.y)
+                    //{
+
+                        Debug.Log("pos1" + go.transform.position.y);
+                        Debug.Log("pos2" + f2.position.y);
+
+                        Movedown(go.transform.position, f1.position);
+
+                        Debug.Log("pos1" + go.transform.position.y);
+                        Debug.Log("pos2" + f2.position.y);
+
+                        floor2 = false;
+                        floor1 = true;
+                    //}
                 }
-                else if ((go.transform.position.y + 0.05f) >= f3.position.y)
+                if (floor3  && canmove)
                 {
-                    Move(go.transform.position, f2.position);
+                    Movedown(go.transform.position, f2.position);
+                    floor3 = false;
+                    floor2 = true;
                 }
-                else if ((go.transform.position.y + 0.05f) >= f4.position.y)
+                if (floor4  && canmove)
                 {
-                    Move(go.transform.position, f3.position);
+                    Movedown(go.transform.position, f3.position);
+                    floor4 = false;
+                    floor3 = true;
                 }
-                else if ((go.transform.position.y + 0.05f) >= f5.position.y)
+                if (floor5  && canmove)
                 {
-                    Move(go.transform.position, f4.position);
+                    Movedown(go.transform.position, f4.position);
+                    floor5 = false;
+                    floor4 = true;
                 }
+                canmove = true;
+
                 break;
 
 
@@ -83,9 +110,9 @@ public class Lift : MonoBehaviour
     }
 }
 
-    public void Move(Vector3 liftpos, Vector3 liftdest)
+    public void Moveup(Vector3 liftpos, Vector3 liftdest)
     {
-        while (((liftdest.y - transform.position.y) >= 0.01))
+        while (((liftdest.y - transform.position.y) >= 0.01f))
         {
 
             transform.position = Vector3.Lerp(transform.position, (liftdest + new Vector3(0,0.02f,0)), 0.5f);
@@ -96,4 +123,14 @@ public class Lift : MonoBehaviour
 
     }
 
+    public void Movedown(Vector3 liftpos, Vector3 liftdest)
+    {
+        while (((transform.position.y - liftdest.y) >= 0.1f))
+        {
+            transform.position = Vector3.Lerp(transform.position, liftdest, 0.5f);
+        }
+
+        canmove = false;
+        move = 3;
+    }
 }

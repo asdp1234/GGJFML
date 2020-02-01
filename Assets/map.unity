@@ -248,11 +248,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: 0
   go: {fileID: 233345607}
-  f1: {fileID: 0}
-  f2: {fileID: 0}
-  f3: {fileID: 0}
-  f4: {fileID: 0}
-  f5: {fileID: 0}
+  f1: {fileID: 1103277848}
+  f2: {fileID: 891631904}
+  f3: {fileID: 719382858}
+  f4: {fileID: 432181861}
+  f5: {fileID: 509549434}
+  floor1: 0
+  floor2: 0
+  floor3: 0
+  floor4: 0
+  floor5: 0
+  canmove: 1
 --- !u!65 &233345609
 BoxCollider:
   m_ObjectHideFlags: 0
