@@ -14,11 +14,13 @@ public class Lift : MonoBehaviour
     bool floor1, floor2, floor3, floor4, floor5;
     [SerializeField]
     bool canmove = true;
+    int level;
     // Update is called once per frame
     private void Start()
     {
         canmove = true;
         floor1 = true;
+        level = 0;
     }
 
     void Update()
@@ -33,6 +35,7 @@ public class Lift : MonoBehaviour
             Moveup(go.transform.position, f2.position);
                     floor1 = false;
                     floor2 = true;
+                    level = 1;
                     
         }
         if (floor2  && canmove && (go.transform.position.y + 0.05f) >= f2.position.y)
@@ -40,19 +43,22 @@ public class Lift : MonoBehaviour
              Moveup(go.transform.position, f3.position);
                     floor2 = false;
                     floor3 = true;
-        }
+                    level = 0;
+                }
         if (floor3  && canmove && (go.transform.position.y + 0.05f) >= f3.position.y)
         {
             Moveup(go.transform.position, f4.position);
                     floor3 = false;
                     floor4 = true;
+                    level = 1;
         }
        if (floor4  && canmove && (go.transform.position.y + 0.05f) >= f4.position.y)
         {
            Moveup(go.transform.position, f5.position);
                     floor4 = false;
                     floor5 = true;
-        }
+                    level = 2;
+                }
                 canmove = true;
         break;
 
@@ -64,38 +70,38 @@ public class Lift : MonoBehaviour
                 }
                 if (floor2 && canmove)
                 {
-                    //if ((go.transform.position.y) <= f2.position.y)
-                    //{
+                    
 
-                        Debug.Log("pos1" + go.transform.position.y);
-                        Debug.Log("pos2" + f2.position.y);
+                       
 
                         Movedown(go.transform.position, f1.position);
 
-                        Debug.Log("pos1" + go.transform.position.y);
-                        Debug.Log("pos2" + f2.position.y);
+                       
 
                         floor2 = false;
                         floor1 = true;
-                    //}
+                        level = 2;
                 }
                 if (floor3  && canmove)
                 {
                     Movedown(go.transform.position, f2.position);
                     floor3 = false;
                     floor2 = true;
+                    level = 1;
                 }
                 if (floor4  && canmove)
                 {
                     Movedown(go.transform.position, f3.position);
                     floor4 = false;
                     floor3 = true;
+                    level = 0;
                 }
                 if (floor5  && canmove)
                 {
                     Movedown(go.transform.position, f4.position);
                     floor5 = false;
                     floor4 = true;
+                    level = 1;
                 }
                 canmove = true;
 
@@ -132,5 +138,11 @@ public class Lift : MonoBehaviour
 
         canmove = false;
         move = 3;
+    }
+
+    public int getlevel()
+    {
+
+        return level;
     }
 }
