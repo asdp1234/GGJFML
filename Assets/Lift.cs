@@ -145,4 +145,11 @@ public class Lift : MonoBehaviour
 
         return level;
     }
+
+
+    void setmove(int index)
+    {
+        move = index;
+
+    }
 }
