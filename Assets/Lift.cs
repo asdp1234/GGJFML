@@ -15,7 +15,7 @@ public class Lift : MonoBehaviour
     [SerializeField]
     bool canmove = true;
     int level;
-
+    
 
     
     // Update is called once per frame
