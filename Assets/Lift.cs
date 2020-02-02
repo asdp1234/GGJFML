@@ -183,6 +183,14 @@ public class Lift : MonoBehaviour
             other.transform.parent = go.transform;
             Debug.Log("works");
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            move = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            move = 2;
+        }
     }
     void OnTriggerExit(Collider other)
     {
