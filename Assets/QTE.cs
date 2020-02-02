@@ -6,50 +6,80 @@ public class QTE : MonoBehaviour
 {
     [SerializeField]
     string[] qte;
+    [SerializeField]
     int[] choose;
+    [SerializeField]
     int level;
+    [SerializeField]
     bool qteloop;
     float currenttime;
     [SerializeField]
     float[] neededtime;
     [SerializeField]
     int qtestate;
+    [SerializeField]
+    GameObject go;
+    new Vector3 startpos;
+    [SerializeField]
+    bool on,restart;
 
     // Start is called before the first frame update
     void Start()
     {
-        choice();
-        qtestate = 0;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
 
-        if (Input.anyKey)
+        if (on)
         {
 
-            if (Input.GetKeyUp(qte[choose[qtestate]]))
+            if (restart)
+            {
+                choice();
+                qtestate = 0;
+                startpos = go.transform.position;
+                restart = false;
+            }
+
+
+
+            go.transform.Translate(new Vector3(0, 60, 0) * Time.deltaTime);
+
+
+
+            if (Input.anyKey)
             {
 
-                qtestate++;
+                if (Input.GetKeyUp(qte[choose[qtestate]]))
+                {
+
+                    qtestate++;
+                }
+                else
+                {
+                    //loose
+                    go.transform.position = go.transform.position;
+                    on = false;
+                }
             }
-            else
+
+            if (qtestate >= 4)
             {
-                //loose
-                Destroy(this);
+                go.transform.position = go.transform.position;
+                on = false;
+
+                //win
             }
+            Loose();
+
         }
-
-        if (qtestate >= 4)
+        else
         {
-            Destroy(this);
+            restart = true;
         }
-        Loose();
-          
-           
-        
     }
 
     void Loose()
@@ -59,7 +89,9 @@ public class QTE : MonoBehaviour
         if (currenttime >= neededtime[level])//time elapstd
         {
             //loose
-            Destroy(this);
+            go.transform.position = go.transform.position;
+            on = false;
+
         }
     }
 
