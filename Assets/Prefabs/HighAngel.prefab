@@ -7,31 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1674275674998822852, guid: b213d930aa3a6f947b579ec0223de1a5,
-        type: 3}
-      propertyPath: m_goals.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939861530673240305, guid: b213d930aa3a6f947b579ec0223de1a5,
-        type: 3}
-      propertyPath: m_BaseOffset
-      value: -48.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939861530673240306, guid: b213d930aa3a6f947b579ec0223de1a5,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 2571230645735714923, guid: 2ad16383079217d4c9c192dcb8479527,
-        type: 3}
     - target: {fileID: 4939861530673240308, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_Name
       value: HighAngel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4939861530673240311, guid: b213d930aa3a6f947b579ec0223de1a5,
-        type: 3}
-      propertyPath: m_lookRadius
-      value: 224.6
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}

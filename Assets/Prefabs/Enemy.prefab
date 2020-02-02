@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4939861530673240308}
-  m_Mesh: {fileID: 2984986176692671565, guid: 422bb6034f3514b4dab97005bd57234a, type: 3}
+  m_Mesh: {fileID: 2571230645735714923, guid: 2ad16383079217d4c9c192dcb8479527, type: 3}
 --- !u!23 &4939861530673240307
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95,9 +95,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 49.93
-  m_Height: 33.3
+  m_Height: 194.14212
   m_Direction: 1
-  m_Center: {x: 2.29, y: 95.43, z: 0}
+  m_Center: {x: 2.290001, y: 89.2, z: 0}
 --- !u!195 &4939861530673240305
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ NavMeshAgent:
   m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 123.31
-  m_BaseOffset: -36.62
+  m_BaseOffset: -48.76
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &4939861530673240310
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18425e210404ba24fb121b13c2d28d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lookRadius: 159.83
+  m_lookRadius: 224.6
   distToPlayer: 0
 --- !u!114 &1674275674998822852
 MonoBehaviour:
