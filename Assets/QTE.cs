@@ -45,6 +45,7 @@ public class QTE : MonoBehaviour
         if (qtestate >= 4)
         {
             Destroy(this);
+            //win
         }
         Loose();
           

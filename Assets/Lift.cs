@@ -7,7 +7,7 @@ public class Lift : MonoBehaviour
     [SerializeField]
     int move;
     [SerializeField]
-    GameObject go;
+    GameObject go, doorgo;
     [SerializeField]
     Transform f1, f2, f3, f4, f5;
     [SerializeField]
@@ -15,12 +15,17 @@ public class Lift : MonoBehaviour
     [SerializeField]
     bool canmove = true;
     int level;
+
+
+    
     // Update is called once per frame
     private void Start()
     {
         canmove = true;
         floor1 = true;
         level = 0;
+
+        
     }
 
     void Update()
@@ -33,6 +38,7 @@ public class Lift : MonoBehaviour
         if (floor1 && canmove && (go.transform.position.y + 0.05f) >= f1.position.y)
         {
             Moveup(go.transform.position, f2.position);
+            Moveup(doorgo.transform.position, f2.position);
                     floor1 = false;
                     floor2 = true;
                     level = 1;
@@ -41,6 +47,7 @@ public class Lift : MonoBehaviour
         if (floor2  && canmove && (go.transform.position.y + 0.05f) >= f2.position.y)
         {
              Moveup(go.transform.position, f3.position);
+             Moveup(doorgo.transform.position, f3.position);
                     floor2 = false;
                     floor3 = true;
                     level = 0;
@@ -48,6 +55,7 @@ public class Lift : MonoBehaviour
         if (floor3  && canmove && (go.transform.position.y + 0.05f) >= f3.position.y)
         {
             Moveup(go.transform.position, f4.position);
+            Moveup(doorgo.transform.position, f4.position);
                     floor3 = false;
                     floor4 = true;
                     level = 1;
@@ -55,6 +63,7 @@ public class Lift : MonoBehaviour
        if (floor4  && canmove && (go.transform.position.y + 0.05f) >= f4.position.y)
         {
            Moveup(go.transform.position, f5.position);
+                    Moveup(doorgo.transform.position, f5.position);
                     floor4 = false;
                     floor5 = true;
                     level = 2;
@@ -75,16 +84,18 @@ public class Lift : MonoBehaviour
                        
 
                         Movedown(go.transform.position, f1.position);
+                    Movedown(doorgo.transform.position, f1.position);
 
-                       
 
-                        floor2 = false;
+
+                    floor2 = false;
                         floor1 = true;
                         level = 2;
                 }
                 if (floor3  && canmove)
                 {
                     Movedown(go.transform.position, f2.position);
+                    Movedown(doorgo.transform.position, f2.position);
                     floor3 = false;
                     floor2 = true;
                     level = 1;
@@ -92,6 +103,7 @@ public class Lift : MonoBehaviour
                 if (floor4  && canmove)
                 {
                     Movedown(go.transform.position, f3.position);
+                    Movedown(doorgo.transform.position, f3.position);
                     floor4 = false;
                     floor3 = true;
                     level = 0;
@@ -99,6 +111,7 @@ public class Lift : MonoBehaviour
                 if (floor5  && canmove)
                 {
                     Movedown(go.transform.position, f4.position);
+                    Movedown(doorgo.transform.position, f4.position);
                     floor5 = false;
                     floor4 = true;
                     level = 1;
@@ -111,8 +124,17 @@ public class Lift : MonoBehaviour
 
             case 3:
 
-
-            break;
+                
+                if (doorgo.transform.position.z <= -145)
+                {
+                    doorgo.transform.Translate(new Vector3(0,0,-30) * Time.deltaTime);
+                }
+                if (true)
+                {
+                    //item check true close door 
+                }
+                
+                break;
     }
 }
 
@@ -152,4 +174,24 @@ public class Lift : MonoBehaviour
         move = index;
 
     }
+
+    void OnTriggerStay(Collider other)
+    {
+
+        if (other.tag == "Player")
+        {
+            other.transform.parent = go.transform;
+            Debug.Log("works");
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+
+        if (other.tag == "Player")
+        {
+            other.transform.parent = null;
+        }
+    }
+
+
 }
