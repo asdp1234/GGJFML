@@ -15,8 +15,8 @@ public class Lift : MonoBehaviour
     [SerializeField]
     bool canmove = true;
     int level;
-    
-
+    bool settimer;
+    float needed, current;
     
     // Update is called once per frame
     private void Start()
@@ -30,6 +30,12 @@ public class Lift : MonoBehaviour
 
     void Update()
     {
+
+
+        if (settimer)
+        {
+            current += Time.deltaTime;
+        }
 
         switch (move)
         {
@@ -123,7 +129,7 @@ public class Lift : MonoBehaviour
 
 
             case 3:
-
+                
                 
                 if (doorgo.transform.position.z <= -145)
                 {
@@ -133,7 +139,11 @@ public class Lift : MonoBehaviour
                 {
                     //item check true close door 
                 }
-                
+                if (current >= needed)
+                {
+                    this.gameObject.SetActive(false);
+                }
+
                 break;
     }
 }
@@ -177,6 +187,8 @@ public class Lift : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        settimer = false;
+        current = 0;
 
         if (other.tag == "Player")
         {
@@ -186,6 +198,9 @@ public class Lift : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
+
+        settimer = true;
+        current = 0;
 
         if (other.tag == "Player")
         {
