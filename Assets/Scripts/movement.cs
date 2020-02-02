@@ -61,7 +61,7 @@ public class movement : MonoBehaviour
     }
 
     void Flip(){
-        transform.Rotate(0f, -1*180f*aim_direction, 0f);
+        transform.Rotate(0f, 180f, 0f);
         // Camera.main.transform.Rotate(0f, 180f, 0f);
         
     }
