@@ -11,6 +11,6 @@ public class camera_behavior : MonoBehaviour {
     }
 
     void Update () {
-        // transform.position = new Vector3 (player.position.x, player.position.y, player.position.z);
+        transform.position = new Vector3 (player.position.x, player.position.y+150, player.position.z+100);
     }
  }
