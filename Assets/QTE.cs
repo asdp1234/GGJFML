@@ -11,7 +11,6 @@ public class QTE : MonoBehaviour
     [SerializeField]
     int level;
     [SerializeField]
-    bool qteloop;
     float currenttime;
     [SerializeField]
     float[] neededtime;
@@ -35,6 +34,7 @@ public class QTE : MonoBehaviour
 
         if (on)
         {
+            currenttime += Time.deltaTime;
 
             if (restart)
             {
@@ -46,24 +46,29 @@ public class QTE : MonoBehaviour
 
 
 
-            go.transform.Translate(new Vector3(0, 60, 0) * Time.deltaTime);
+           // go.transform.Translate(new Vector3(0, 60, 0) * Time.deltaTime);
 
 
 
             if (Input.anyKey)
             {
-
-                if (Input.GetKeyUp(qte[choose[qtestate]]))
-                {
+               if(Input.GetKeyUp(qte[choose[qtestate]]))
+               {
 
                     qtestate++;
-                }
+                    Debug.Log("Success");
+                        
+               }
                 else
                 {
-                    //loose
+                //loose
+                    Debug.Log("lost");
+                    
                     go.transform.position = go.transform.position;
                     on = false;
                 }
+
+                
             }
 
             if (qtestate >= 4)
@@ -84,8 +89,7 @@ public class QTE : MonoBehaviour
 
     void Loose()
     {
-        currenttime += Time.deltaTime;
-
+        
         if (currenttime >= neededtime[level])//time elapstd
         {
             //loose
@@ -98,7 +102,7 @@ public class QTE : MonoBehaviour
 
     void choice()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
 
             choose[i] = Random.Range(0, 5);
