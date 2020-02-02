@@ -7,6 +7,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4939861530673240304, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240304, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 123.601166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240304, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240304, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Height
+      value: 188.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240304, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240305, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_BaseOffset
+      value: -15.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240306, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_Mesh

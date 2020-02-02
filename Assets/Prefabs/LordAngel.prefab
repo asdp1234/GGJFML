@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4639835793813914767
+--- !u!1001 &657006534067332002
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,52 +10,58 @@ PrefabInstance:
     - target: {fileID: 4939861530673240305, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_Radius
-      value: 47.6
+      value: 50.2
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240305, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_Height
-      value: 186.7
+      value: 151.3
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240305, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_BaseOffset
-      value: -0.4
+      value: -24.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4939861530673240306, guid: b213d930aa3a6f947b579ec0223de1a5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -553505945879789257, guid: 39b724f75496e93448a46d2e07bf08ae,
+        type: 3}
     - target: {fileID: 4939861530673240308, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_Name
-      value: HighAngel
+      value: LordAngel
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 632.0139
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 369.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.356274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007450581
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4939861530673240845, guid: b213d930aa3a6f947b579ec0223de1a5,
         type: 3}
