@@ -11,6 +11,7 @@ public class bullet_script : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
+        GameObject.Destroy(this.gameObject,2);
     }
 
     // Update is called once per frame
@@ -19,10 +20,10 @@ public class bullet_script : MonoBehaviour
         
     }
 
-    void OnTriggerEnter() {
+    void OnTriggerEnter(Collider col) {
         GameObject.Destroy(this.gameObject,0);
-    }
-    void OnCollisionEnter(Collision col) {
-        GameObject.Destroy(this.gameObject,0);
+        if(col.gameObject.tag == "enemy") {
+            GameObject.Destroy(col.gameObject,0);
+        }
     }
 }

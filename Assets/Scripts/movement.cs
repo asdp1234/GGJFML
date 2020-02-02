@@ -40,11 +40,11 @@ public class movement : MonoBehaviour
     {
         //Jump function to make player jump, need to ensure it requires the player to be on the ground
     	Jump();
-        float dir = Input.GetAxis("Horizontal") * -1;
-        Vector3 movement = new Vector3(dir, 0f, 0f);
+        float dir = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(-dir, 0f, 0f);
         if (Mathf.Abs(aim_direction+dir) < 1) {
             aim_direction = dir/(Mathf.Abs(dir));
-            //Flip();
+            Flip();
         }
 	    transform.position += movement * Time.deltaTime * move_speed;
 
@@ -61,7 +61,9 @@ public class movement : MonoBehaviour
     }
 
     void Flip(){
-        transform.Rotate(0f, 180f, 0f);
+        transform.Rotate(0f, -1*180f*aim_direction, 0f);
+        // Camera.main.transform.Rotate(0f, 180f, 0f);
+        
     }
 
     void Jump(){
